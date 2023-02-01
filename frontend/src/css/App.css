@@ -1,0 +1,42 @@
+body {
+    padding: 1.5rem;
+}
+
+.Background {
+    background-image: url(https://setlivewallpaper.com/wp-content/uploads/2022/03/Hu-Tao-Genshin-Impact-thumb-scaled.jpg);
+    background-size: cover;
+    background-position: center 0px;
+    min-height: 1440px;
+    overflow: hidden; /* Hide scrollbars */
+}
+
+.Navbar {
+    display: flex;
+    justify-content: center;
+}
+
+.Footer {
+    display: flex;
+    justify-content: center;
+    width: calc(100% - 3rem);
+    position: fixed;
+    bottom: 1.5rem;
+}
+
+.NavbarText {
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.PageRow {
+    top: 50%;
+    display: flex;
+    justify-content: center;
+    padding: 1.5rem;
+    color: #ffffff;
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-align: center;
+}
