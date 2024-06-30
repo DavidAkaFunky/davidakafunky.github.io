@@ -1,0 +1,77 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Introduction from "../components/home/Introduction.astro";
+import Interests from "../components/home/Interests.astro";
+import Experience from "../components/home/Experience.astro";
+import CurrentActivity from "../components/home/CurrentActivity.astro";
+import Education from "../components/home/Education.astro";
+---
+
+<Layout title="Hi, I'm David!">
+  <div class="card">
+    <div class="intro-grid">
+      <div class="photo-flex">
+        <img src="photo.png" />
+      </div>
+      <div>
+        <h1>Hello there! :3</h1>
+        <Introduction />
+      </div>
+    </div>
+    <div class="two-col-grid">
+      <Interests />
+      <Experience />
+    </div>
+    <CurrentActivity />
+    <Education />
+  </div>
+</Layout>
+
+<style>
+  img {
+    border: 2px solid #2dd5f6;
+    border-radius: 50%;
+    width: 12rem;
+    height: fit-content;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+    border: 2px solid #dc2970;
+    background: #1e1e2eaa;
+    backdrop-filter: blur(5px);
+    padding: 1.5rem;
+    border-radius: 8px;
+  }
+
+  .photo-flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    order: 1;
+  }
+
+  @media screen and (max-width: 750px) {
+    .intro-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media screen and (min-width: 750px) {
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 4fr auto;
+      align-content: start;
+      gap: 1rem;
+    }
+  }
+
+  .two-col-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    gap: 1rem;
+  }
+</style>
