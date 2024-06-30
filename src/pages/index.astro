@@ -28,11 +28,17 @@ import Education from "../components/home/Education.astro";
 </Layout>
 
 <style>
+
+  h1 {
+    font-size: max(1.8rem, min(7vw, 2.4rem));
+  }
+
   img {
     border: 2px solid #2dd5f6;
     border-radius: 50%;
+    box-shadow: 0 0 8px #2dd5f6;
     width: 12rem;
-    height: fit-content;
+    object-fit: contain;
   }
 
   .card {
@@ -41,6 +47,7 @@ import Education from "../components/home/Education.astro";
     width: 100%;
     gap: 1rem;
     border: 2px solid #dc2970;
+    box-shadow: 0 0 8px #dc2970;
     background: #1e1e2eaa;
     backdrop-filter: blur(5px);
     padding: 1.5rem;
@@ -60,7 +67,7 @@ import Education from "../components/home/Education.astro";
     }
   }
 
-  @media screen and (min-width: 750px) {
+  @media screen and (min-width: 751px) {
     .intro-grid {
       display: grid;
       grid-template-columns: 4fr auto;
