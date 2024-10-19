@@ -4,6 +4,7 @@ interface Props {
 }
 
 const { title } = Astro.props;
+
 ---
 
 <!doctype html>
@@ -12,7 +13,7 @@ const { title } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="description" content="Welcome to my page!" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/photo.png" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
@@ -21,30 +22,39 @@ const { title } = Astro.props;
       <nav>
         <a href="/">Home</a>
         |
-        <a href="/cv">CV</a>
+        <a href="/cv.pdf">CV</a>
         |
         <a href="https://github.com/DavidAkaFunky">GitHub</a>
       </nav>
       <slot />
-      <footer>
-        <a href="https://vaascoo.pt/">&lt;- Vasco</a>
-        <a href="https://pombosmalvados.github.io/webring/">Webring</a>
-        <a href="https://diogoms.pt/">Diogo -&gt;</a>
+      <footer class="webring">
+        <div id="webring-prev"></div>
+        <a href="https://pombosmalvados.github.io/webring/">Our webring 👀</a>
+        <div id="webring-next"></div>
       </footer>
     </main>
   </body>
 </html>
 <style is:global>
+
+  @import url(https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&display=swap);
+
   * {
     margin: 0;
     box-sizing: border-box;
   }
 
+  @font-face {
+    font-family: "Barlow";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/barlow/v12/7cHpv4kjgoGqM7E_Ass52Hs.woff2) format("woff2");
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+
   html {
-    font-family:
-      JetBrains Mono,
-      system-ui,
-      sans-serif;
+    font-family: "Barlow";
     background: #181825;
     min-height: 100%;
     background: url("/background.jpg") no-repeat center center fixed;
@@ -110,3 +120,35 @@ const { title } = Astro.props;
     gap: 1rem;
   }
 </style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+  fetch("https://pombosmalvados.github.io/webring/webring.json")
+    .then((response) => response.json())
+    .then((data) => {
+      const index = data.findIndex((m: any) => m.name === "David Belchior");
+
+      if (index === -1) {
+        console.error("Failed to find myself in the webring data");
+        return;
+      }
+
+      const prevIndex = (index - 1 + data.length) % data.length;
+      const nextIndex = (index + 1) % data.length;
+
+      const prev = data[prevIndex];
+      const next = data[nextIndex];
+
+      document.getElementById("webring-prev")!.innerHTML = `
+        <a href="${prev.url}">« ${prev.name.split(" ")[0]}</a>
+      `;
+
+      document.getElementById("webring-next")!.innerHTML = `
+        <a href="${next.url}">${next.name.split(" ")[0]} »</a>
+      `;
+    })
+    .catch((error) => {
+      console.error("Failed to fetch webring data", error);
+    });
+});
+</script>
