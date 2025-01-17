@@ -1,7 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Introduction from "../components/home/Introduction.astro";
-import Interests from "../components/home/Interests.astro";
 import Experience from "../components/home/Experience.astro";
 import CurrentActivity from "../components/home/CurrentActivity.astro";
 import Education from "../components/home/Education.astro";
@@ -18,12 +17,11 @@ import Education from "../components/home/Education.astro";
         <Introduction />
       </div>
     </div>
+    <Experience />
     <div class="two-col-grid">
-      <Interests />
-      <Experience />
+      <Education />
+      <CurrentActivity />
     </div>
-    <CurrentActivity />
-    <Education />
   </div>
 </Layout>
 
@@ -41,19 +39,6 @@ import Education from "../components/home/Education.astro";
     object-fit: contain;
   }
 
-  .card {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: 1rem;
-    border: 2px solid #dc2970;
-    box-shadow: 0 0 8px #dc2970;
-    background: #1e1e2eaa;
-    backdrop-filter: blur(5px);
-    padding: 1.5rem;
-    border-radius: 8px;
-  }
-
   .photo-flex {
     display: flex;
     align-items: center;
@@ -67,7 +52,7 @@ import Education from "../components/home/Education.astro";
     }
   }
 
-  @media screen and (min-width: 751px) {
+  @media screen and (min-width: 750px) {
     .intro-grid {
       display: grid;
       grid-template-columns: 4fr auto;
