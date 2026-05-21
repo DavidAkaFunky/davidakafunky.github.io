@@ -1,0 +1,15 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { getCollection } from 'astro:content';
+
+// Get all entries from a collection.
+// Requires the name of the collection as an argument.
+const posts = await getCollection("blog");
+---
+
+<Layout title="Hi, I'm David!">
+    <h1>My Random Musings</h1>
+    {posts.map(post => (
+        <h3><a href={`/blog/${post.id}`}>{post.data.pubDate.toLocaleDateString("pt-PT")} - {post.data.title}</a></h3>
+    ))}
+</Layout>

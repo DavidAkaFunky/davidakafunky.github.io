@@ -2,26 +2,24 @@
 import Layout from "../layouts/Layout.astro";
 import Introduction from "../components/home/Introduction.astro";
 import Experience from "../components/home/Experience.astro";
-import CurrentActivity from "../components/home/CurrentActivity.astro";
+import News from "../components/home/News.astro";
 import Education from "../components/home/Education.astro";
 ---
 
 <Layout title="Hi, I'm David!">
-  <div class="card">
-    <div class="intro-grid">
-      <div class="photo-flex">
-        <img src="/photo.png" />
-      </div>
-      <div>
-        <h1>Hello there! :3</h1>
-        <Introduction />
-      </div>
+  <div class="intro-grid">
+    <div class="photo-flex">
+      <img src="/foto2025.png" />
     </div>
-    <Experience />
-    <div class="two-col-grid">
-      <Education />
-      <CurrentActivity />
+    <div>
+      <h1>Hello there! :3</h1>
+      <Introduction />
     </div>
+  </div>
+  <Experience />
+  <div class="two-col-grid">
+    <Education />
+    <News />
   </div>
 </Layout>
 

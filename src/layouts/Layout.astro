@@ -13,7 +13,7 @@ const { title } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="description" content="Welcome to my page!" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" href="/photo.png" />
+    <link rel="icon" href="/foto2025.png" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
@@ -22,11 +22,17 @@ const { title } = Astro.props;
       <nav>
         <a href="/">Home</a>
         |
+        <a href="/blog">Blog</a>
+        |
+        <a href="/travel-log">Travel Log</a>
+        |
         <a href="/cv.pdf">CV</a>
         |
         <a href="https://github.com/DavidAkaFunky">GitHub</a>
       </nav>
-      <slot />
+      <div class="card">
+        <slot />
+      </div>
       <footer class="webring">
         <div id="webring-prev"></div>
         <a href="https://pombosmalvados.github.io/webring/">Our webring 👀</a>
@@ -91,7 +97,7 @@ const { title } = Astro.props;
   nav {
     display: flex;
     margin: 1rem 0;
-    font-size: 2rem;
+    font-size: min(3vw, 2rem);
     font-weight: bold;
     gap: 1rem;
   }

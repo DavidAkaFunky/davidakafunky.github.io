@@ -1,0 +1,13 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { getCollection } from 'astro:content';
+
+// Get all entries from a collection.
+// Requires the name of the collection as an argument.
+const posts = await getCollection("blog");
+---
+
+<Layout title="Hi, I'm David!">
+    <h1>Travel Log</h1>
+    These are some of the places I have been to since I started working.
+</Layout>
